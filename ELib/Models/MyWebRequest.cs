@@ -49,6 +49,24 @@ namespace ELib.Models
 
         }
 
+        public async Task OnAdd(LendBook def, string what)
+        {
+
+            var json = JsonConvert.SerializeObject(def);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var url = "https://elibrarysamos.azurewebsites.net/api/books/" + what;
+            var client = new HttpClient();
+
+            var response = await client.PostAsync(url, data);
+
+            var result = response.EnsureSuccessStatusCode().StatusCode;
+            Console.WriteLine(result);
+            Set_Confirmation(result.ToString());
+
+
+        }
+
         public async Task OnAdd(PrintBook pb, string what)
         {
 

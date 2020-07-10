@@ -160,7 +160,7 @@ namespace ELib.Views
             {
                 MyWebRequest request = new MyWebRequest();
 
-                //await request.OnAdd(book, "addbook");
+                await request.OnAdd(book, "deletebook");
                 if (request.Get_Confirmation().Contains("OK"))
                 {
                     await ShowMessage("Succesfully deleted", "Alert", "Ok", async () =>

@@ -19,9 +19,10 @@ namespace ELib.Views
     {
         public ObservableCollection<PrintBook> list { get; set; }
         private List<PrintBook> posdef = null;
-        
-        public BookB()
+        private LogIn user;
+        public BookB(LogIn user)
         {
+            this.user = user;
             InitializeComponent();
             Request();
 
@@ -45,7 +46,7 @@ namespace ELib.Views
         public void Request()
         {
             var apireq =
-                WebRequest.Create("http://elibrarysamos.azurewebsites.net/api/book/getallbooks") as HttpWebRequest;
+                WebRequest.Create("http://elibrarysamos.azurewebsites.net/api/books/getallbooks") as HttpWebRequest;
             var apiresp = "";
 
             using (var response = apireq.GetResponse() as HttpWebResponse)
@@ -58,10 +59,55 @@ namespace ELib.Views
 
 
         }
-        private void Book(object sender, EventArgs e)
+        async private void Book(object sender, EventArgs e)
         {
             PrintBook d = (PrintBook)listView.SelectedItem;
 
+            var bookL = new LendBook();
+
+            bookL.Book = d;
+            bookL.ReturnDate = DateTime.Now;
+            bookL.Username = user.name;
+
+            try
+            {
+                MyWebRequest request = new MyWebRequest();
+
+                await request.OnAdd(bookL, "lendbook");
+                if (request.Get_Confirmation().Contains("OK"))
+                {
+                    await ShowMessage("Succesfully Booked", "Alert", "Ok", async () =>
+                    {
+                        this.Navigation.PushAsync(new TabedPage(user), true);
+
+                    });
+
+                }
+            }
+            catch (Exception exception)
+            {
+
+                await ShowMessage("Something went wrong!", "Alert", "Ok", async () =>
+                {
+                    //this.Navigation.PushAsync(new Register(), true);
+                });
+
+
+            }
+
+        }
+
+        public async Task ShowMessage(string message,
+            string title,
+            string buttonText,
+            Action afterHideCallback)
+        {
+            await DisplayAlert(
+                title,
+                message,
+                buttonText);
+
+            afterHideCallback?.Invoke();
         }
 
     }

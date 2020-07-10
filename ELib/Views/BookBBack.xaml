@@ -10,9 +10,26 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ScrollView>
+                <ListView  x:Name="listView" RowHeight="60">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="Return" Text="Επιστοφή"  CommandParameter="{Binding .}"/>
+                                </ViewCell.ContextActions>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="Transparent">
+                                    <Image Source="{Binding photolink}" HorizontalOptions="Start" AbsoluteLayout.LayoutBounds="250.25, 0.25, 50, 50 "/>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text = "{Binding title}"  FontSize="20" AbsoluteLayout.LayoutBounds="0.25, 0.25, 400, 40"/>
+                                        <Label Text = "{Binding writer}"  FontSize="14" AbsoluteLayout.LayoutBounds="50, 35, 200, 25"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

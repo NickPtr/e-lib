@@ -39,9 +39,9 @@ namespace ELib.Views
 
             user.mail = Mail.Text;
             user.password = Password.Text;
-            user.name = "";
-            user.surrname = "";
-            user.phone = "";
+            user.name = " ";
+            user.surrname = " ";
+            user.phone = " ";
 
 
             try
@@ -50,7 +50,7 @@ namespace ELib.Views
 
                 await request.OnAdd(user, "login");
 
-                if (request.result.Contains("OK"))
+                if (request.Get_Confirmation().Contains("OK"))
                 {
                     //await Request();
                     this.Navigation.PushAsync(new TabedPage(user), true);

@@ -22,10 +22,10 @@ namespace ELib.Views
             BarBackgroundColor = Color.White;
             BarTextColor = Color.Black;
            // this.Children.Add(new HomePage());
-            this.Children.Add(new BookB());
+            this.Children.Add(new BookB(user));
             this.Children.Add(new Donate(user));
             this.Children.Add(new BackDonate(user));
-            this.Children.Add(new BookBBack());
+            this.Children.Add(new BookBBack(user));
         }
     }
 }
