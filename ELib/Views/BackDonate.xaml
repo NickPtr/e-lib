@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ELib.Views.BackDonate"
+             IconImageSource="box.png"
+             Title="cancel"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Frame BorderColor="Black" BackgroundColor="White" CornerRadius="15" Padding="8" >
+                <StackLayout>
+                    <ImageButton  Source="camera.png" BackgroundColor="Transparent" HeightRequest="50" WidthRequest="50" Clicked="TakePhotoButton" VerticalOptions="StartAndExpand" HorizontalOptions="Start"></ImageButton>
+                    <BoxView Color="Black" HeightRequest="2" HorizontalOptions="Fill" />
+                    <Label Text="Αν επιθυμειτε την ακυρωση της δωρεας σας παρακαλω βγαλτε μια φωτογραφια το ISBN (το barcode) του βιβλιου σας πατοντας το κουμπι παραπανω." TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </Frame>
+            <Image x:Name="imgSelected" IsVisible="False" HeightRequest="200" WidthRequest="200" ></Image>
+            <Entry x:Name="ISBNText" Placeholder="ISBN"></Entry>
+            <ImageButton  Source="upload.png" BackgroundColor="Transparent" HeightRequest="50" WidthRequest="50" Clicked="DeleteBtn" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"></ImageButton>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ELib.Views.Donate"
+             IconImageSource="donate.png"
+             Title="donate"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+            <Frame BorderColor="Black" BackgroundColor="White" CornerRadius="15" Padding="8" >
+                <StackLayout>
+                        <ImageButton  Source="camera.png" BackgroundColor="Transparent" HeightRequest="50" WidthRequest="50" Clicked="TakePhotoButton" VerticalOptions="StartAndExpand" HorizontalOptions="Start"></ImageButton>
+                    <BoxView Color="Black" HeightRequest="2" HorizontalOptions="Fill" />
+                    <Label Text="Παρακαλω βγαλτε φωτογραφια πατοντας το κουμπι παραπανω το ISBN (barcode) του βιβλιου που θελετε να κανετε δωρεα." TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </Frame>
+            
+            <Entry x:Name="ISBNText" Placeholder="ISBN"></Entry>
+                
+            <Frame BorderColor="Black" BackgroundColor="White" CornerRadius="15" Padding="8" >
+                <StackLayout>
+                        <ImageButton  Source="camera.png" BackgroundColor="Transparent" HeightRequest="50" WidthRequest="50" Clicked="TakePhotoButton" VerticalOptions="StartAndExpand" HorizontalOptions="Start"></ImageButton>
+                    <BoxView Color="Black" HeightRequest="2" HorizontalOptions="Fill" />
+                        <Label Text="Στην συνεχεια βγαλτε φωτογραφια πατοντας το κουμπι παραπανω το εξωφυλλο του βιβλιου ωστε να φαινονται καθαρα το ονομα του συγγραφεα και ο τιτλος του βιβλιου." TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </Frame>
+                
+           
+            <Entry x:Name="WriterText" Placeholder="Συγγραφεας"></Entry>
+       
+            <Entry x:Name="TitleText" Placeholder="Τιτλος"></Entry>
+
+
+                <Button x:Name="btnPick" IsVisible="False" Text="Επιλογή Φωτογραφίας" Clicked="PickButton" />
+                <Image x:Name="imgSelected" IsVisible="False" HeightRequest="200" WidthRequest="200" ></Image>
+
+                <Frame BorderColor="Black" BackgroundColor="White" CornerRadius="15" Padding="8" >
+                    <StackLayout>
+                        
+                        <Entry x:Name="Type" Placeholder="Τυπος Βιβλιου"></Entry>
+                        <BoxView Color="Black" HeightRequest="2" HorizontalOptions="Fill" />
+                        <Label Text="Τελος γραψτε παραπανω τον τυπο του βιβλιου." TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                    </StackLayout>
+                </Frame>
+                <ImageButton  Source="upload.png" BackgroundColor="Transparent" HeightRequest="50" WidthRequest="50" Clicked="UploadBtn" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"></ImageButton>
+            
+            
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

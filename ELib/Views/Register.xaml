@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ELib.Views.Register">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout  VerticalOptions="Center" Padding="50">
+                <Image Source="lib.png" Scale="0.8" HorizontalOptions="CenterAndExpand" ></Image>
+                <Label TextColor="Red" x:Name="error"  FontSize="14" ></Label>
+                <Entry x:Name="Name"  Placeholder="Name"  FontSize="14"></Entry>
+                <Entry x:Name="Surrname"  Placeholder="Surrname"  FontSize="14"></Entry>
+                <Entry x:Name="Mail"  Placeholder="Mail"  FontSize="14"></Entry>
+                <Entry x:Name="Phone"  Placeholder="Phone"  FontSize="14"></Entry>
+                <Entry x:Name="Password"   Placeholder="Password" FontSize="14" IsPassword="True"></Entry>
+                <Entry x:Name="Password2"   Placeholder="Repeat Password" FontSize="14" IsPassword="True"></Entry>
+                
+                <Button x:Name="OkRegister" Text="Register" TextColor="White" BackgroundColor="#6A2C91" FontSize="14"  Clicked="Register_OnClicked"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
